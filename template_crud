@@ -1,0 +1,54 @@
+before_action :find_product, only: [:show, :edit, :update, :delete, :destroy]
+
+def index
+end
+
+def show
+end
+
+def new
+end
+
+def create
+  @product = Product.new(products_params)
+  if @product.save
+    flash[:success] = "product #{@product.name} saved"
+    redirect_to @product
+  else
+    render 'new'
+  end
+end
+
+def edit
+end
+
+def update
+  if @product.update_attributes(products_params)
+    flash[:success] = "changes for #{@product.name} saved"
+    redirect_to 'index'
+  end
+end
+
+def delete
+end
+
+def destroy
+  if @product.destroy
+    flash[:success] = "product '#{@product.name}' deleted."
+    redirect_to 'index'
+  end
+end
+
+private
+  def products_params
+    params.require(:product)(:name, :quantity, :base_price)
+  end
+
+  def find_product
+    @product = Products.find_by_id(params[:id])
+
+    if @product.nil?
+      flash[:error] = 'the product you are looking for is not found.'
+      redirect_to 'index'
+    end
+  end

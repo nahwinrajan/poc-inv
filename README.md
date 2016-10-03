@@ -1,6 +1,29 @@
-== README
+= README
 
-*Database
+==Development Phase
+=== V 0.1 - PoC
+- products
+  - CRUD feature
+  - Test: Unit, Function, Interaction
+  - Looks and stylesheets
+- User
+  - devise
+  - CRUD + Invitation
+  - recover account
+  - Main - admin
+  - Test: Unit, Function, Interaction
+  - Looks and stylesheets
+- Client
+  - CRUD
+  - Test: Unit, Function, Interaction
+  - Look and style
+- Transaction
+  - CRUD
+  - Test: Unit, Function, Interaction
+  - Look and style
+  ---------------------------
+
+==Database
 User
 - email
 - password
@@ -18,8 +41,7 @@ Client
 Product
 - Name
 - Quantity
-- Capital
-- Category
+- base_price
 
 
 Transaction
@@ -33,5 +55,6 @@ Transaction Detail
 - Item Quantity
 - Capital at time
 - Sold Price
-=> has many items
+- discount
+=> has many products
 => belongs to a trx
