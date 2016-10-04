@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+company_ace:
+  name: Acellent Co
+  address: Street Ace 3
+  phone: 555-5555
+  email: acellent@purchase.com
+
+factory_outlet:
+  name: Some FO
+  address: Jalan Braga 1
+  phone: 321-514876
+  email: fo.me@purchasedept.com

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
   setup do
-    @product = products(:one)
+    @product = products(:packaging_box)
     @update = {
       :name         => 'Function Test',
       :description  => 'item created as setup record',

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  fixtures :products
   test "product attributes must not be empty" do
     product = Product.new
     assert product.invalid?
@@ -26,7 +25,7 @@ class ProductTest < ActiveSupport::TestCase
     product.price = 0
     assert product.invalid?
     assert_equal 'must be greater than or equal to 0.01',
-      product.error[:price].join('; ')
+      product.errors[:price].join('; ')
 
     product.price = 27
     assert product.valid?
@@ -45,25 +44,22 @@ class ProductTest < ActiveSupport::TestCase
       product.errors[:quantity].join('; ')
 
     product.quantity = 0
-    assert product.invalid?
-    assert_equal 'must be greater than or equal to 0',
-      product.error[:quantity].join('; ')
+    assert product.valid?
 
     product.quantity = 5
     assert product.valid?
   end
 
   test 'product name must be unique' do
-    product = Product.new(
-      name: 'marker original japan',
+    duplicate_product = Product.new(
+      name: products(:spidol).name,
       description: 'special marker',
       price: '230000',
       quantity: 10,
       image_url: 'https://hd.unsplash.com/photo-1432888498266-38ffec3eaf0a'
     )
 
-    assert !product.save
-    assert_equal I18n.translate('activerecord.errors.messages.taken'), 
-      product.errors[:name].join('; ')
+    assert duplicate_product.invalid?
+    assert duplicate_product.errors[:name].any?
   end
 end
