@@ -12,6 +12,7 @@ gem 'jbuilder', '2.2.3'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'font-awesome-rails'
+gem "sprockets", '3.6.3'
 
 group :development do
   gem 'sqlite3', '1.3.9'
@@ -19,18 +20,15 @@ group :development do
   gem 'annotate'
   gem 'better_errors', '~> 2.1.1'
   gem 'binding_of_caller', '~> 0.7.2'
+  gem 'web-console'
+  gem 'byebug'
+  gem 'spring'
 end
 
 group :test do
   gem 'minitest-reporters'
   gem 'mini_backtrace'
   gem 'guard-minitest'
-end
-
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console'
-  gem 'spring'
 end
 
 group :production do

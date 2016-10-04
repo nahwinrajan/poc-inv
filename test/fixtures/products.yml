@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+packaging_box:
+  name: packaging box medium
+  description: brown packaging box in medium size
+  quantity: 1000
+  price: 20000
+  image_url: ./assets/images/shipment-box.png
+
+folder_envelope:
+  name: folder envelope plastic
+  description: folder map made from plastic and colourful
+  quantity: 200
+  price: 15000
+  image_url: ./assets/images/map-folder.jpg
+
+spidol:
+  name: marker original japan
+  description: special marker imported direct from japan
+  price: 500000
+  quantity: 30
+  image_url: https://hd.unsplash.com/photo-1432888498266-38ffec3eaf0a
