@@ -1,33 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Clients</h1>
+<div class="container">
+  <div class="text-right">
+    <form class="navbar-form text-right" role="search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default"><i class="fa fa-search"></i></button>
+       </span>
+      </div>
+      <%= link_to new_client_path, :class => "btn btn-default" do %>
+        <i class="fa fa-plus"></i> Add Client
+      <% end %>
+    </form>
+  </div>
+  <h1 class="page-header">Listing Clients</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clients.each do |client| %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="warning">
       <tr>
-        <td><%= client.name %></td>
-        <td><%= client.address %></td>
-        <td><%= client.phone %></td>
-        <td><%= client.email %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Company</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>email</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Client', new_client_path %>
+    </thead>
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td><%= truncate(client.name, :lenght => 30) %></td>
+          <td><%= truncate(client.address, :length => 50) %></td>
+          <td><%= client.phone %></td>
+          <td><%= client.email %></td>
+          <td><%= link_to 'Show', client %></td>
+          <td>
+            <%= link_to edit_client_path(client) do%>
+              <i class="fa fa-pencil-square-o"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to client, method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

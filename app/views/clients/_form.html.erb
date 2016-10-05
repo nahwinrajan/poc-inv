@@ -1,33 +1,29 @@
-<%= form_for(@client) do |f| %>
-  <% if @client.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-md-offset-3">
+    <%= form_for(@client) do |f| %>
+      <%= render partial: 'shared/error_messages', locals: { obj: @client } %>
 
-      <ul>
-      <% @client.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control", placeholder: "client name" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_area :address, class: "form-control",
+        placeholder: "client address", cols: "40", rows: "3" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.telephone_field :phone, class: "form-control", placeholder: "phone number" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control", placeholder: "email address" %>
+      </div>
+      <div class="form-group">
+        <%= link_to 'Back', clients_path, {:class => "btn btn-default btn-lg"} %>
+        <%= f.submit local_assigns[:submit_text], class: "btn btn-success btn-lg" %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

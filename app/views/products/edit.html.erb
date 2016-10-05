@@ -1,6 +1,4 @@
-<h1>Editing Product</h1>
+<% provide(:title, "Edit Product") %>
+<h1 class="page-header text-center">Edit Product</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<%= render partial: 'form', locals: { submit_text: 'Update' }%>
