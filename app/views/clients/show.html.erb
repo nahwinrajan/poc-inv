@@ -1,24 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<h1 class="page-header col-sm-12">
   <%= @client.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @client.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @client.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @client.email %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+</h1>
+<div class="col-sm-12 col-md-9 col-md-offset-2">
+  <span class="pull-right">
+    <%= link_to 'Edit', edit_client_path(@client) %>
+    <strong> | </strong>
+    <%= link_to 'Back', clients_path %>
+  </span>
+</div>
+<div class="row">
+  <p class="col-sm-12 col-md-6 col-md-offset-3 lead">
+    Address
+  </p>
+</div>
+<div class="row">
+  <p class="col-sm-12 col-md-6 col-md-offset-3">
+    <%= @client.address %>
+  </p>
+</div>
+<div class="row">
+  <p class="col-sm-12 col-md-3 col-md-offset-3 lead">
+    Phone
+  </p>
+  <p class="col-sm-12 col-md-3 lead">
+    Email
+  </p>
+</div>
+<div class="row">
+  <p class="col-sm-12 col-md-3 col-md-offset-3">
+    <%= @client.phone %>
+  </p>
+  <p class="col-sm-12 col-md-3">
+    <%= @client.email %>
+  </p>
+</div>

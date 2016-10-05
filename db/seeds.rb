@@ -14,7 +14,7 @@ Product.delete_all
     :description => Faker::Lorem.paragraphs(rand(5..15)).join('\n'),
     :quantity => Faker::Number.between(1, 1000),
     :price => Faker::Commerce.price,
-    :image_url =>Faker::Placeholdit.image("120x120", 'jpg', '252830', '1bc98e', 'Awesome Product')
+    :image_url =>Faker::Placeholdit.image("400x400", 'jpg', '252830', '1bc98e', 'Awesome Product')
   )
 end
 

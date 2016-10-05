@@ -1,28 +1,25 @@
-<p>
-  <strong>Name:</strong>
+<h1 class="page-header col-sm-12">
   <%= @product.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= sanitize(@product.description) %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @product.quantity %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency(@product.price, unit: 'Rp', separator: ',',
-    delimiter: '.') %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+  <span class="small pull-right">
+    <i><%= @product.quantity %></i>
+    <strong> | </strong>
+    <i><%= number_to_currency(@product.price, unit: 'Rp. ', separator: ',',
+    delimiter: '.') %></i>
+  </span>
+</h1>
+<div class="col-sm-12 col-md-9 col-md-offset-2">
+  <span class="pull-right">
+    <%= link_to 'Edit', edit_product_path(@product)%>
+    <strong> | </strong>
+    <%= link_to 'Back', products_path%>
+  </span>
+</div>
+<div class="row">
+  <div class="col-sm-12 col-md-2 col-md-offset-2">
+      <%= image_tag @product.image_url, height: 'auto', width: '100%',
+        class: "img-thumbnail img-rounded img-responsive" %>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <%= sanitize(@product.description) %>
+  </div>
+</div>
