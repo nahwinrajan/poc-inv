@@ -1,0 +1,10 @@
+<% if local_assigns[:obj].errors.any? %>
+  <div class="alert alert-danger">
+    the form contains <%= pluralize(local_assigns[:obj].errors.count, "error") %>
+  </div>
+  <ul>
+    <% local_assigns[:obj].errors.full_messages.each do |msg| %>
+      <li class="text-danger"><%= msg %>
+    <% end %>
+  </ul>
+<% end %>
