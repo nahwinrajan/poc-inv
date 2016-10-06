@@ -2,12 +2,16 @@
 
 <div class="container">
   <div class="text-right">
-    <form class="navbar-form text-right" role="search">
+    <form class="navbar-form text-right" role="search" id="product_search"
+      action="/products" accept-charset="UTF-8" method="get">
+      <input name="utf8" type="hidden" value="✓">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for...">
-        <span class="input-group-btn">
-          <button class="btn btn-default"><i class="fa fa-search"></i></button>
-       </span>
+        <input type="search" class="form-control" placeholder="Search for..."
+          name="q[name_or_description_cont]" id="q_name_or_description_cont">
+            <span class="input-group-btn">
+              <button class="btn btn-default"><i class="fa fa-search"></i></button>
+           </span>
+        </input>
       </div>
       <%= link_to new_product_path, :class => "btn btn-default" do %>
         <i class="fa fa-plus"></i> Add Product

@@ -17,7 +17,7 @@
   - CRUD
   - Test: Unit, Function, Interaction
   - Look and style
-- Transaction
+- Sales
   - CRUD
   - Test: Unit, Function, Interaction
   - Look and style
@@ -44,7 +44,7 @@ Product
 - base_price
 
 
-Transaction
+Sales
 - Client ID
 - Datetime
 => has many trx Detail

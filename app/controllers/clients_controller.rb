@@ -2,7 +2,8 @@ class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   def index
-    @clients = Client.paginate(:page => params[:page], :per_page => 20)
+    @q = Client.search(params[:q])
+    @clients = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
