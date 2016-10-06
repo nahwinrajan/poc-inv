@@ -3,7 +3,8 @@ class ClientsController < ApplicationController
 
   def index
     @q = Client.search(params[:q])
-    @clients = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 20)
+    @clients = @q.result(distinct: true).paginate(:page => params[:page],
+      :per_page => 20).order('name')
   end
 
   def show
