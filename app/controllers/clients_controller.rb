@@ -46,7 +46,13 @@ class ClientsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_client
-      @client = Client.find(params[:id])
+      begin
+        @client = Client.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Attempt to access invalid client #{params[:id]}"
+        flash[:danger] = 'Invalid client'
+        redirect_to clients_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
