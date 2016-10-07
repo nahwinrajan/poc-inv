@@ -52,7 +52,7 @@ class ProductTest < ActiveSupport::TestCase
 
   test 'product name must be unique' do
     duplicate_product = Product.new(
-      name: products(:spidol).name,
+      name: products(:folder_envelope).name,
       description: 'special marker',
       price: '230000',
       quantity: 10,

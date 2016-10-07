@@ -7,7 +7,7 @@ class ClientsControllerTest < ActionController::TestCase
       :name => "Updated Client's Name",
       :address => "updated client's address",
       :phone => "109-674852",
-      :email => "updated@email.com"
+      :email => "updatedclient@email.com"
     }
   end
 

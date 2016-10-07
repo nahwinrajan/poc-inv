@@ -4,11 +4,10 @@ class ClientTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
-  test 'client name and phone must not be empty' do
+  test 'client name must not be empty' do
     client = Client.new
     assert client.invalid?
     assert client.errors[:name].any?
-    assert client.errors[:phone].any?
   end
 
   test 'client name must be unique' do

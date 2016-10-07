@@ -22,20 +22,19 @@ class ClientsController < ApplicationController
 
     if @client.save
       flash[:success] = 'Client was successfully created.'
+      redirect_to @client
     else
       render 'new'
     end
   end
 
   def update
-    respond_to do |format|
       if @client.update(client_params)
         flash[:success] = 'Client was successfully updated.'
         redirect_to @client
       else
         render 'edit'
       end
-    end
   end
 
   def destroy

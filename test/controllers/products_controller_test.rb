@@ -3,8 +3,15 @@ require 'test_helper'
 class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:packaging_box)
-    @update = {
-      :name         => 'Function Test',
+    @product_new = {
+      :name         => 'Product New',
+      :description  => 'for testing creating new item in functional test',
+      :quantity     => '33',
+      :price        => '88.88',
+      :image_url    => 'https://hd.unsplash.com/reserve/unsplash_52ce2b0530dab_1.JPG',
+    }
+    @product_update = {
+      :name         => 'Function Test - Update',
       :description  => 'item created as setup record',
       :quantity     => '33',
       :price        => '88.88',
@@ -25,7 +32,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should create product" do
     assert_difference('Product.count') do
-      post :create, :product => @update
+      post :create, :product => @product_new
     end
 
     assert_redirected_to product_path(assigns(:product))
@@ -42,7 +49,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should update product" do
-    put :update, :id => @product.to_param, :product => @update
+    put :update, :id => @product.to_param, :product => @product_update
     assert_redirected_to product_path(assigns(:product))
   end
 
