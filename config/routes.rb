@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :line_items
-  resources :carts
   root 'products#index'
 
   resources :products
   resources :clients
+  resources :line_items
+  resources :carts
+  
 
-
-  get "*any", via: :all, to: 'application#not_found'
+  get '*unmatched_route', to: 'application#not_found'
 end
