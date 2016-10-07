@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <div class="text-right">  
+  <div class="text-right">
     <form class="navbar-form text-right" role="search" id="client_search"
       action="/clients" accept-charset="UTF-8" method="get">
       <input name="utf8" type="hidden" value="✓">
@@ -39,7 +39,9 @@
           <td><%= truncate(client.address, :length => 50) %></td>
           <td><%= client.phone %></td>
           <td><%= client.email %></td>
-          <td><%= link_to 'Show', client %></td>
+          <td><%= link_to client do %>
+            <i class="fa fa-eye"></i>
+          <% end %></td>
           <td>
             <%= link_to edit_client_path(client) do%>
               <i class="fa fa-pencil-square-o"></i>

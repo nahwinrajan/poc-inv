@@ -4,6 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def not_found
-    render file: "public/404.html", status: :not_found
+    respond_to do |format|
+      format.html { render file: "public/404.html", status: :not_found }
+    end
+  rescue ActionController::UnknownFormat
+    render status: 404, text: "nope"
   end
+
+  private
+    def current_cart
+      Cart.find(session[:cart_id])
+    rescue ActiveRecord::RecordNotFound
+      cart = Cart.create
+      session[:cart_id] = cart.id
+      cart
+    end
 end
