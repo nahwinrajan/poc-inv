@@ -20,7 +20,15 @@
         <li><a href="/teams">Team</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/users/sign_in"><i class="fa fa-user"></i> sign in</a></li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to :destroy_user_session, :method => 'delete' do %>
+              <i class="fa fa-sign-out"></i> sign out
+            <% end %>
+          </li>
+        <% else %>
+          <li><a href="/users/sign_in"><i class="fa fa-sign-in"></i> sign in</a></li>
+        <% end %>
         <li><a href="#"><i class="fa fa-gear"></i> settings</a></li>
       </ul>
     </div>
